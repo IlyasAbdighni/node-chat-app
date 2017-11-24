@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "name": "chat-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
