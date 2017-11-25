@@ -32,12 +32,27 @@ socket.on('newMessage', function(message) {
 
 jQuery('#message-form').on('submit', function (e) {
   e.preventDefault();
+
+  var messsageBox = jQuery('[name=message]');
+
   socket.emit('newMessage', {
     from: 'Ilyas',
-    text: jQuery('[name=message]').val()
+    text: messsageBox.val()
   }, function () {
-
+    messsageBox.val('');
   });
+});
+
+var locationButton = jQuery('#send-location');
+locationButton.on('click', function () {
+  if (!navigator.geolocation) {
+    return alert('Geolocation is not available by your browser');
+  }
+  navigator.geolocation.getCurrentPosition(function (location){
+    console.log(location);
+  }, function (){
+    alert('Unable to fetch location.');
+  })
 });
 
 

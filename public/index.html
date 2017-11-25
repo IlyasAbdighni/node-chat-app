@@ -3,18 +3,36 @@
   <head>
     <meta charset="utf-8">
     <title>Node Chat app</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
   </head>
   <body>
-    <h1>Ilyas node chat app</h1>
 
-    <ol id="show-messages" >
+    <div class="row">
 
-    </ol>
+      <div class="col s2 side_nav">
+        <h3>People</h3>
+        <div id="users"></div>
+      </div>
 
-    <form id="message-form">
-      <input type="text" name="message" value="" placeholder="Message" >
-      <button type="submit">send</button>
-    </form>
+      <div class="col s10 main_content">
+        <div class="chat__messages">
+          <ol id="show-messages" class="chat__messages-ol" >
+
+          </ol>
+        </div>
+
+        <div class="chat__footer">
+
+          <form id="message-form">
+            <input type="text" name='message' placeholder="Message" autofocus >
+            <button class="waves-effect waves-light btn">send</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
 
     <script src="/socket.io/socket.io.js" charset="utf-8" type="text/javascript"></script>
     <script src="./js/libs/jquery-3.2.1.min.js" charset="utf-8"></script>

@@ -44,12 +44,13 @@ io.on('connection', (socket) => {
   //
   // });
 
-  socket.on('newMessage', (message) => {
+  socket.on('newMessage', (message, callback) => {
     socket.emit('newMessage', {
       from: message.from,
       text: message.text,
       createdAt: new Date().getTime()
     });
+    callback();
   });
 
   // socket.emit('createMessage', {
