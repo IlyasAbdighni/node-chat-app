@@ -5,4 +5,4 @@ let generateMessages = (from, text) => {
     createdAt: new Date().getTime()
   };
 }
- 
+module.export = {generateMessages} 

@@ -3,6 +3,8 @@ const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
 
+
+
 const publicPath = path.join(__dirname, '../public');
 let PORT = process.env.PORT || 3000;
 
@@ -26,24 +28,28 @@ io.on('connection', (socket) => {
     createdAt: new Date().getTime()
   });
 
-  socket.on('createEmail', (newEmail) => {
+  // socket.on('createEmail', (newEmail) => {
+  //
+  //   // io.emit('createEmail', {
+  //   //   from: message.from,
+  //   //   text: message.text,
+  //   //   createdAt: new Date().getTime()
+  //   // });
+  //
+  //   socket.broadcast.emit('newMessage', {
+  //     from: message.from,
+  //     text: message.text,
+  //     createdAt: new Date().getTime()
+  //   });
+  //
+  // });
 
-    // io.emit('createEmail', {
-    //   from: message.from,
-    //   text: message.text,
-    //   createdAt: new Date().getTime()
-    // });
-
-    socket.broadcast.emit('newMessage', {
+  socket.on('newMessage', (message) => {
+    socket.emit('newMessage', {
       from: message.from,
       text: message.text,
       createdAt: new Date().getTime()
     });
-
-  });
-
-  socket.on('createMessage', (message) => {
-    console.log('server recieves the message -> ', message);
   });
 
   // socket.emit('createMessage', {

@@ -6,7 +6,18 @@
   </head>
   <body>
     <h1>Ilyas node chat app</h1>
+
+    <ol id="show-messages" >
+
+    </ol>
+
+    <form id="message-form">
+      <input type="text" name="message" value="" placeholder="Message" >
+      <button type="submit">send</button>
+    </form>
+
     <script src="/socket.io/socket.io.js" charset="utf-8" type="text/javascript"></script>
-    <script src="./js/index.js" charset="utf-8"></script>
+    <script src="./js/libs/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script src="./js/client.js" charset="utf-8"></script>
   </body>
 </html>
